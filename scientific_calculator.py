@@ -1,5 +1,5 @@
 import streamlit as st
-import plotly.graph_objs as go
+import matplotlib.pyplot as plt
 import numpy as np
 import logging
 import sys
@@ -52,8 +52,11 @@ def plot_function(func, x_range):
     try:
         x = np.linspace(x_range[0], x_range[1], 100)
         y = func(x)
-        fig = go.Figure(data=go.Scatter(x=x, y=y, mode='lines'))
-        fig.update_layout(title=f'Graph of {func._name_}(x)', xaxis_title='x', yaxis_title='y')
+        fig, ax = plt.subplots()
+        ax.plot(x, y)
+        ax.set_title(f'Graph of {func._name_}(x)')
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
         return fig
     except Exception as e:
         logger.error(f"Error in plot_function: {str(e)}")
@@ -111,7 +114,7 @@ def calculator():
                     fig = plot_function(logarithm, [0.1, x_max])  # Adjust range for logarithm
 
                 if fig:
-                    st.plotly_chart(fig)
+                    st.pyplot(fig)
                 else:
                     st.error("An error occurred while generating the graph.")
             except Exception as e:
