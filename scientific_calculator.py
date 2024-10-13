@@ -1,3 +1,4 @@
+!pip install streamlit
 import streamlit as st
 
 # Define the functions for the calculator
