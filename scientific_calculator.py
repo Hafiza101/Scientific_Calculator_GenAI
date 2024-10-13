@@ -1,4 +1,4 @@
-!pip install streamlit
+pip install streamlit
 # Save the calculator code to a Python file
 with open("calculator.py", "w") as f:
     f.write('''
