@@ -1,4 +1,3 @@
-!pip install streamlit
 import streamlit as st
 
 # Define the functions for the calculator
@@ -44,3 +43,5 @@ def calculator():
 if __name__ == '__main__':
     calculator()
 
+
+streamlit run calculator.py
