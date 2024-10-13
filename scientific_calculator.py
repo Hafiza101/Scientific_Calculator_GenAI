@@ -62,3 +62,5 @@ print(f"Streamlit is accessible at {public_url}")
 
 # Run streamlit in the background
 !streamlit run calculator.py &>/dev/null&
+pip install streamlit
+streamlit run calculator.py
