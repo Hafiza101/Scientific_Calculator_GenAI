@@ -1,4 +1,7 @@
 !pip install streamlit
+# Save the calculator code to a Python file
+with open("calculator.py", "w") as f:
+    f.write('''
 import streamlit as st
 
 # Define the functions for the calculator
@@ -43,3 +46,19 @@ def calculator():
 # Run the calculator app
 if __name__ == '__main__':
     calculator()
+    ''')
+streamlit run calculator.py
+!pip install pyngrok
+# Install streamlit and ngrok
+!pip install streamlit
+!pip install pyngrok
+
+# Run streamlit app with ngrok
+from pyngrok import ngrok
+
+# Start ngrok
+public_url = ngrok.connect(port='8501')
+print(f"Streamlit is accessible at {public_url}")
+
+# Run streamlit in the background
+!streamlit run calculator.py &>/dev/null&
